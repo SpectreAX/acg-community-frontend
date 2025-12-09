@@ -1,0 +1,134 @@
+.subject-container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.nav-header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+.content-wrapper { display: flex; gap: 40px; align-items: flex-start; }
+
+.left-col { width: 240px; flex-shrink: 0; }
+.cover-img { width: 100%; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.action-box { margin-top: 15px; text-align: center; }
+.score { font-size: 24px; color: #f6a623; font-weight: bold; }
+.w-100 { width: 100%; margin-top: 10px; }
+
+.info-sidebar { margin-top: 30px; background: #fdfdfd; padding: 15px; border-radius: 8px; border: 1px solid #eee; }
+.side-title { font-size: 14px; font-weight: bold; margin-bottom: 10px; border-left: 3px solid #409eff; padding-left: 8px; }
+.expand-btn { text-align: center; font-size: 12px; color: #409eff; cursor: pointer; margin-top: 10px; display: flex; justify-content: center; align-items: center; }
+
+.infobox-list { list-style: none; padding: 0; margin: 0; }
+.infobox-list li { margin-bottom: 6px; font-size: 12px; line-height: 1.4; border-bottom: 1px dashed #eee; padding-bottom: 4px; display: flex; }
+.infobox-list .label { color: #666; font-weight: bold; width: 60px; flex-shrink: 0; }
+.infobox-list .value { color: #333; word-break: break-all; }
+
+.right-col { flex: 1; min-width: 0; }
+.anime-title { margin-top: 0; font-size: 28px; }
+.sub-title { font-size: 16px; font-weight: bold; margin-bottom: 10px; border-left: 4px solid #409eff; padding-left: 10px; }
+.summary { color: #666; line-height: 1.6; background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 10px; white-space: pre-wrap; }
+.tags-box { margin-bottom: 20px; }
+.tag-item { margin-right: 10px; margin-bottom: 5px;}
+
+/* 通用横向滚动 */
+.scroll-section { margin-top: 30px; }
+.h-scroll { display: flex; overflow-x: auto; gap: 15px; padding-bottom: 15px; width: 100%; }
+.h-scroll::-webkit-scrollbar { height: 8px; }
+.h-scroll::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.h-scroll::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+
+/* 角色卡片 */
+.char-card { width: 90px; flex-shrink: 0; text-align: center; }
+.char-avatar { width: 90px; height: 90px; border-radius: 8px; border: 1px solid #eee; display: block; }
+.image-slot { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; background: #f5f7fa; color: #909399; font-size: 24px; }
+.char-info { margin-top: 5px; }
+.char-name { font-size: 12px; font-weight: bold; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cv-name { font-size: 12px; color: #666; transform: scale(0.9); margin-top: 2px; }
+
+/* Staff 卡片 (固定高度，扁平长方形) */
+.staff-card { 
+  width: 110px; 
+  min-width: 110px; 
+  flex-shrink: 0; 
+  height: 60px; 
+  padding: 5px 8px; 
+  background: #f9f9f9; 
+  border-radius: 6px; 
+  text-align: left; 
+  border: 1px solid #eee; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+.staff-role { font-size: 11px; color: #999; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; text-align: center;}
+.staff-name { font-size: 13px; font-weight: bold; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; width: 100%; text-align: center;}
+
+/* 通用查看更多按钮基础样式 */
+.view-more-card { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  cursor: pointer; 
+  background: #fff;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.view-more-card:hover { border-color: #409eff; background: #f0f9ff; }
+.view-more-circle { width: 50px; height: 50px; border-radius: 50%; background: #f0f9ff; color: #409eff; display: flex; justify-content: center; align-items: center; font-size: 20px; margin-bottom: 5px; }
+.view-more-text { font-size: 12px; color: #409eff; }
+
+/* 角色 View More */
+.char-more { height: 135px; min-width: 90px; }
+
+/* Staff View More */
+.staff-more { height: 72px; min-width: 128px; flex-direction: column; gap: 5px; }
+.staff-more .view-more-circle { width: 24px; height: 24px; font-size: 14px; margin-bottom: 0; }
+.staff-more .view-more-text { font-size: 12px; }
+
+/* 弹窗 Grid */
+.char-grid-full, .staff-grid-full { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+.char-card-full, .staff-card-full { display: flex; align-items: center; background: #f9f9f9; padding: 10px; border-radius: 6px; }
+.char-avatar-full { width: 50px; height: 50px; border-radius: 50%; border: 1px solid #eee; margin-right: 10px; }
+.char-info-full { flex: 1; overflow: hidden; }
+.char-name-full { font-weight: bold; font-size: 14px; margin-bottom: 4px; }
+.cv-name-full { font-size: 12px; color: #666; }
+.role-tag { background: #eef; color: #409eff; padding: 1px 4px; border-radius: 3px; font-size: 10px; margin-right: 5px; }
+
+.staff-card-full { flex-direction: column; text-align: center; }
+.staff-role-full { font-size: 12px; color: #999; margin-bottom: 5px; }
+.staff-name-full { font-weight: bold; font-size: 14px; color: #333; }
+
+/* 分组样式 */
+.staff-group { margin-bottom: 20px; }
+.group-title { font-size: 15px; font-weight: bold; border-left: 4px solid #409eff; padding-left: 10px; margin-bottom: 10px; color: #333; }
+
+/* 章节列表 */
+.ep-section { margin-top: 40px; }
+.ep-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+.ep-box { 
+  background: #fff; border: 1px solid #eee; border-radius: 4px; padding: 8px; 
+  display: flex; align-items: center; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden;
+}
+.ep-box:hover { border-color: #409eff; color: #409eff; background: #f0f9ff; }
+
+/* 已看过的章节样式 */
+.ep-watched { background-color: #ecf5ff; border-color: #b3d8ff; color: #409eff; }
+.ep-watched .ep-sort { color: #409eff; font-weight: 900; }
+
+.ep-sort { font-weight: bold; margin-right: 8px; color: #999; min-width: 20px; }
+.ep-name { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #666; }
+
+/* Popover 内部样式 */
+.pop-content { font-size: 13px; color: #333; }
+.pop-title { font-weight: bold; font-size: 15px; margin-bottom: 8px; color: #000; }
+.pop-info { font-size: 12px; color: #666; margin-bottom: 10px; display: flex; gap: 10px; }
+.pop-actions { display: flex; gap: 10px; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; }
+
+/* 评论区 */
+.comment-section { margin-top: 40px; }
+.post-box { margin-bottom: 30px; }
+.comment-item { display: flex; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
+.comment-right { margin-left: 15px; flex: 1; }
+.comment-user { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.nickname { font-weight: bold; color: #333; font-size: 14px; }
+.date { color: #999; font-size: 12px; }
+.comment-content { line-height: 1.6; color: #555; font-size: 14px; }
+
+.full-list li { border-bottom: 1px solid #f0f0f0; padding: 10px 0; display:flex; }
+.full-list .label { width: 100px; }

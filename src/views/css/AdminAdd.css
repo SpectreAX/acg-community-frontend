@@ -1,0 +1,244 @@
+/* 👇👇👇 1. 外层全屏背景 👇👇👇 */
+.admin-background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  /* 纯白背景 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 👇👇👇 2. 内容容器 (限制宽度 + 居中) 👇👇👇 */
+.admin-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-card {
+  padding: 10px;
+}
+
+/* 区块样式 */
+.section-block {
+  margin-bottom: 30px;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 20px;
+}
+
+.block-title {
+  font-size: 16px;
+  font-weight: bold;
+  border-left: 4px solid #409eff;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+/* 👇👇👇 3. 修复封面上传按钮样式 👇👇👇 */
+.cover-upload-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.url-input {
+  flex: 1;
+}
+
+/* 强制覆盖 el-upload 内部容器的大小 */
+.cover-uploader :deep(.el-upload) {
+  border: 1px dashed #dcdfe6;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+  width: 100px;
+  /* 强制宽度 */
+  height: 140px;
+  /* 强制高度 (长方形) */
+  display: flex;
+  /* 居中图标 */
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.cover-uploader :deep(.el-upload:hover) {
+  border-color: #409eff;
+}
+
+.cover-uploader .cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  /* 图标本身不需要宽高，由父容器居中 */
+}
+
+/* 动态行通用 */
+.dynamic-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.kv-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 100px;
+}
+
+.colon {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #999;
+}
+
+.tips {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* 角色 Grid */
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.grid-item {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  background: #fcfcfc;
+}
+
+.grid-img-box {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.grid-img-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.grid-inputs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.del-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* 添加卡片 */
+.add-card {
+  border: 1px dashed #ddd;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #999;
+  min-height: 120px;
+  transition: all 0.3s;
+}
+
+.add-card:hover {
+  border-color: #409eff;
+  color: #409eff;
+  background: #f0f9ff;
+}
+
+.footer-bar {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* 批量日志 */
+.progress-log {
+  margin-top: 15px;
+  background: #f4f4f5;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 12px;
+  color: #555;
+  border: 1px solid #e9e9eb;
+}
+
+.progress-log pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.batch-trigger {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+/* 成功列表 */
+.batch-success-box {
+  margin-bottom: 15px;
+  border: 1px solid #e1f3d8;
+  background: #f0f9eb;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.success-title {
+  font-weight: bold;
+  color: #67c23a;
+  margin-bottom: 8px;
+}
+
+.success-item {
+  margin-bottom: 5px;
+}
+
+.success-item a {
+  color: #409eff;
+  text-decoration: none;
+}
+
+.success-item a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,476 @@
+.discussion-container {
+  min-height: 100vh;
+  background-color: #f4f5f7;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+/* === 导航栏 === */
+.discussion-nav {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.discussion-nav h2 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.discussion-nav .el-button {
+  font-size: 14px;
+}
+
+/* 限制内容宽度 */
+.post-editor-card,
+.post-list {
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.post-list {
+  margin-top: 20px;
+}
+
+/* === 发布框 === */
+.post-editor-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.editor-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.topic-selector {
+  display: flex;
+  align-items: center;
+}
+
+.topic-selector .label {
+  font-size: 13px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.topic-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #409eff;
+  background: #ecf5ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.topic-trigger:hover {
+  background: #d9ecff;
+}
+
+.dynamic-input {
+  margin-left: 10px;
+}
+
+.title-row {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.clean-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  color: #333;
+  background: transparent;
+}
+
+.word-count {
+  font-size: 12px;
+  color: #ccc;
+  flex-shrink: 0;
+}
+
+.markdown-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f9f9f9;
+  padding: 6px 10px;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #eee;
+  border-bottom: none;
+}
+
+.tool-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #666;
+  font-size: 13px;
+  font-family: sans-serif;
+  transition: background 0.2s;
+}
+
+.tool-btn:hover {
+  background: #e6e6e6;
+  color: #333;
+}
+
+.tool-btn.italic {
+  font-style: italic;
+  font-family: serif;
+}
+
+.tool-btn.strike {
+  text-decoration: line-through;
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: #ddd;
+  margin: 0 5px;
+}
+
+.content-wrapper {
+  border: 1px solid #eee;
+  border-radius: 0 0 6px 6px;
+  padding: 10px;
+  min-height: 120px;
+  transition: border-color 0.2s;
+  background: #fff;
+}
+
+.content-wrapper:focus-within {
+  border-color: #409eff;
+}
+
+.clean-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  font-family: inherit;
+  background: transparent;
+  min-height: 100px;
+}
+
+.editor-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.left-tools {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.footer-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-btn:hover {
+  color: #409eff;
+}
+
+.emoji-picker-wrapper {
+  max-width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+}
+
+.emoji-item {
+  font-size: 22px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.emoji-item:hover {
+  background: #f0f0f0;
+}
+
+/* === 列表 === */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 0 5px;
+}
+
+.list-header span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.filter-tabs span {
+  padding: 6px 16px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: all 0.3s;
+  margin-left: 5px;
+}
+
+.filter-tabs span.active {
+  background: #409eff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.filter-tabs span:hover:not(.active) {
+  color: #409eff;
+  background: #fff;
+}
+
+.post-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  background: #ffffff;
+  overflow: visible;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 👈 核心修复：垂直居中对齐 */
+  margin-bottom: 12px;
+  height: 40px;
+  /* 固定高度与头像一致，防止跳动 */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+}
+
+.nickname {
+  font-weight: bold;
+  color: #333;
+  font-size: 15px;
+}
+
+.post-right {
+  display: flex;
+  align-items: center;
+  /* 👈 核心修复：右侧标签垂直居中 */
+  gap: 10px;
+  height: 100%;
+}
+
+.more-actions {
+  cursor: pointer;
+  color: #999;
+  transform: rotate(90deg);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.post-content {
+  margin-bottom: 15px;
+  padding-left: 52px;
+  color: #333;
+}
+
+.post-title {
+  margin: 0 0 8px 0;
+  font-size: 17px;
+  color: #000;
+  font-weight: bold;
+}
+
+.post-text {
+  line-height: 1.6;
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+
+/* Markdown 解析样式 */
+.markdown-body :deep(img) {
+  max-width: 100%;
+  border-radius: 6px;
+  margin: 8px 0;
+  border: 1px solid #eee;
+}
+
+.markdown-body :deep(p) {
+  margin: 5px 0;
+}
+
+.markdown-body :deep(h2) {
+  font-size: 1.2em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.markdown-body :deep(a) {
+  color: #409eff;
+  text-decoration: none;
+}
+
+/* 👇👇👇 修改：底部操作栏 (两端对齐) 👇👇👇 */
+.post-footer {
+  padding-left: 52px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  /* 关键：两端对齐 */
+  align-items: center;
+  /* border-top: 1px solid #f9f9f9; removed */
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.action-left {
+  display: flex;
+  gap: 30px;
+}
+
+.action-btn {
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.action-btn:hover {
+  color: #409eff;
+}
+
+/* 右下角时间样式 */
+.footer-time {
+  font-size: 12px;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+}
+
+/* 回复区 */
+.reply-area {
+  margin-top: 15px;
+  margin-left: 52px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+
+.reply-input-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.reply-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reply-item {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.reply-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+.reply-content {
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  flex: 1;
+}
+
+.reply-nick {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
+}
+
+.reply-text {
+  color: #555;
+}
+
+.reply-time {
+  font-size: 11px;
+  color: #aaa;
+  display: block;
+  margin-top: 4px;
+}

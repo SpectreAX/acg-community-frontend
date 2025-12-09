@@ -1,0 +1,37 @@
+/* 👇👇👇 外层全屏背景容器 👇👇👇 */
+.admin-background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white; /* 纯白背景 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 内容容器 (居中 + 限制宽度) */
+.admin-container { 
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 30px 20px; 
+  box-sizing: border-box;
+}
+
+.header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 20px; 
+}
+
+.action-bar { 
+  margin-bottom: 20px; 
+  display: flex; 
+  justify-content: flex-start; 
+  align-items: center; 
+}
+
+.tip { 
+  font-size: 12px; 
+  color: #999; 
+  margin-top: 5px; 
+}

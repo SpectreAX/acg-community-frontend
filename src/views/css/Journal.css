@@ -1,0 +1,274 @@
+.journal-container {
+    min-height: 100vh;
+    background-color: #f4f5f7;
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+/* 限制内容宽度 */
+.journal-nav,
+.post-list {
+    max-width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.post-list {
+    margin-top: 20px;
+}
+
+/* === 导航栏 === */
+.journal-nav {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.journal-nav h2 {
+    margin: 0;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.journal-nav .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.journal-nav .el-button {
+    font-size: 14px;
+}
+
+/* === 列表 === */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.list-header span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-tabs span {
+    padding: 6px 16px;
+    font-size: 13px;
+    color: #666;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: all 0.3s;
+    margin-left: 5px;
+}
+
+.filter-tabs span.active {
+    background: #409eff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.filter-tabs span:hover:not(.active) {
+    color: #409eff;
+    background: #fff;
+}
+
+.post-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+    background: #ffffff;
+    overflow: visible;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    height: 40px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 100%;
+}
+
+.nickname {
+    font-weight: bold;
+    color: #333;
+    font-size: 15px;
+}
+
+.post-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.more-actions {
+    cursor: pointer;
+    color: #999;
+    transform: rotate(90deg);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.post-content {
+    margin-bottom: 15px;
+    padding-left: 52px;
+    color: #333;
+}
+
+.post-title {
+    margin: 0 0 8px 0;
+    font-size: 17px;
+    color: #000;
+    font-weight: bold;
+}
+
+.post-text {
+    line-height: 1.6;
+    font-size: 15px;
+    white-space: pre-wrap;
+}
+
+/* Markdown 解析样式 */
+.markdown-body :deep(img) {
+    max-width: 100%;
+    border-radius: 6px;
+    margin: 8px 0;
+    border: 1px solid #eee;
+}
+
+.markdown-body :deep(p) {
+    margin: 5px 0;
+}
+
+.markdown-body :deep(h2) {
+    font-size: 1.2em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.markdown-body :deep(a) {
+    color: #409eff;
+    text-decoration: none;
+}
+
+.post-footer {
+    padding-left: 52px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+.action-left {
+    display: flex;
+    gap: 30px;
+}
+
+.action-btn {
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.action-btn:hover {
+    color: #409eff;
+}
+
+.footer-time {
+    font-size: 12px;
+    color: #ccc;
+    font-family: Arial, sans-serif;
+}
+
+/* 回复区 */
+.reply-area {
+    margin-top: 15px;
+    margin-left: 52px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+
+.reply-input-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.reply-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reply-item {
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.reply-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+
+.reply-content {
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    flex: 1;
+}
+
+.reply-nick {
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px;
+}
+
+.reply-text {
+    color: #555;
+}
+
+.reply-time {
+    font-size: 11px;
+    color: #aaa;
+    display: block;
+    margin-top: 4px;
+}

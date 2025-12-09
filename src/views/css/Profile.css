@@ -1,0 +1,466 @@
+.profile-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* 头部样式 */
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.avatar-box {
+  position: relative;
+  margin-right: 25px;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  transform: translate(20%, 20%);
+}
+
+.user-details {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 24px;
+  color: #333;
+  margin: 0;
+}
+
+.header-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.friend-actions {
+  display: flex;
+  align-items: center;
+}
+
+.uid {
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.bio {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.join-date {
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* 统计面板 */
+.stats-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 60%;
+}
+
+.stat-box {
+  border-radius: 6px;
+  padding: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.pink {
+  background-color: #f09199;
+}
+
+.green {
+  background-color: #7ac943;
+}
+
+.blue {
+  background-color: #3fa9f5;
+}
+
+.orange {
+  background-color: #ff9900;
+}
+
+.purple {
+  background-color: #9e005d;
+}
+
+.cyan {
+  background-color: #0071bc;
+}
+
+.stat-box .num {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.stat-box .label {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.chart-box {
+  flex: 1;
+  height: 160px;
+  margin-left: 20px;
+}
+
+.collection-tabs {
+  background: #fff;
+  min-height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 头像编辑区样式 */
+.avatar-controls {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.url-input-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar-uploader .avatar {
+  width: 100px;
+  height: 100px;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+}
+
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* Friend System Styles */
+.friend-actions {
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.friend-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.friend-item {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.friend-item:hover {
+  background: #f5f7fa;
+  transform: translateY(-3px);
+}
+
+.friend-name {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.request-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.request-item:last-child {
+  border-bottom: none;
+}
+
+.req-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.req-name {
+  font-weight: bold;
+}
+
+.req-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Friend Item Layout */
+.friend-info {
+  text-align: center;
+}
+
+.friend-actions-menu {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.friend-item {
+  position: relative;
+}
+
+
+
+.pink {
+  background-color: #f09199;
+}
+
+.green {
+  background-color: #7ac943;
+}
+
+.blue {
+  background-color: #3fa9f5;
+}
+
+.orange {
+  background-color: #ff9900;
+}
+
+.purple {
+  background-color: #9e005d;
+}
+
+.cyan {
+  background-color: #0071bc;
+}
+
+.stat-box .num {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.stat-box .label {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.chart-box {
+  flex: 1;
+  height: 160px;
+  margin-left: 20px;
+}
+
+.collection-tabs {
+  background: #fff;
+  min-height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 头像编辑区样式 */
+.avatar-controls {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.url-input-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.avatar-uploader .avatar {
+  width: 100px;
+  height: 100px;
+  display: block;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+}
+
+.avatar-uploader .el-upload:hover {
+  border-color: #409eff;
+}
+
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+/* Friend System Styles */
+.friend-actions {
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.friend-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.friend-item {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.friend-item:hover {
+  background: #f5f7fa;
+  transform: translateY(-3px);
+}
+
+.friend-name {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.request-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.request-item:last-child {
+  border-bottom: none;
+}
+
+.req-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.req-name {
+  font-weight: bold;
+}
+
+.req-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Friend Item Layout */
+.friend-info {
+  text-align: center;
+}
+
+.friend-actions-menu {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+.friend-item {
+  position: relative;
+}
+
+.friend-item:hover .friend-actions-menu {
+  display: block;
+}
+
+.el-dropdown-link {
+  color: #999;
+}
+
+.el-dropdown-link:hover {
+  color: #409eff;
+}

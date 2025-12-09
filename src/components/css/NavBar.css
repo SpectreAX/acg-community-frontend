@@ -1,0 +1,83 @@
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;        /* 👇 核心修复：改用 left+right 锚定，替代 width: 100% */
+  width: auto;     /* 让浏览器自动计算宽度，自动避开滚动条 */
+  height: 64px;
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  box-sizing: border-box; /* 👇 确保 padding/border 不会撑大宽度 */
+}
+
+/* 隐藏状态 */
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+/* 有阴影状态 (滚动后) */
+.navbar-shadow {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #409eff;
+  cursor: pointer;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  height: 100%; 
+}
+
+.center-search {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+}
+
+.welcome-text {
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.nav-btn {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.el-dropdown {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

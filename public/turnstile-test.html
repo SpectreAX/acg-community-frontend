@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnstile 测试页面</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        #turnstile-test-container {
+            margin: 20px 0;
+            min-height: 80px;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔒 Turnstile 测试页面</h1>
+
+        <div id="status-log"></div>
+
+        <h3>测试 1: 使用您的 Sitekey</h3>
+        <div id="turnstile-test-container-1"></div>
+        <button onclick="testYourKey()">渲染组件 (您的密钥)</button>
+
+        <h3>测试 2: 使用官方测试 Sitekey</h3>
+        <div id="turnstile-test-container-2"></div>
+        <button onclick="testOfficialKey()">渲染组件 (测试密钥)</button>
+
+        <h3>调试信息</h3>
+        <button onclick="checkAPI()">检查 Turnstile API</button>
+        <button onclick="clearLog()">清空日志</button>
+    </div>
+
+    <script>
+        const YOUR_SITEKEY = '0x4AAAAAACFiKk55E_D0Rtkm';
+        const TEST_SITEKEY = '1x00000000000000000000AA'; // Cloudflare 官方测试密钥
+        let widgetId1 = null;
+        let widgetId2 = null;
+
+        function log(message, type = 'info') {
+            const statusLog = document.getElementById('status-log');
+            const div = document.createElement('div');
+            div.className = 'status ' + type;
+            div.textContent = new Date().toLocaleTimeString() + ' - ' + message;
+            statusLog.appendChild(div);
+            console.log(message);
+        }
+
+        function clearLog() {
+            document.getElementById('status-log').innerHTML = '';
+        }
+
+        function checkAPI() {
+            if (window.turnstile) {
+                log('✅ window.turnstile 已加载', 'success');
+                log('可用方法: ' + Object.keys(window.turnstile).join(', '), 'info');
+            } else {
+                log('❌ window.turnstile 未找到', 'error');
+            }
+        }
+
+        function waitForTurnstile(callback, retries = 10) {
+            if (window.turnstile) {
+                callback();
+            } else if (retries > 0) {
+                log('等待 Turnstile API 加载... (剩余重试: ' + retries + ')', 'info');
+                setTimeout(() => waitForTurnstile(callback, retries - 1), 500);
+            } else {
+                log('❌ Turnstile API 加载超时', 'error');
+            }
+        }
+
+        function testYourKey() {
+            waitForTurnstile(() => {
+                try {
+                    if (widgetId1 !== null) {
+                        window.turnstile.remove(widgetId1);
+                        log('移除旧 widget', 'info');
+                    }
+
+                    log('开始渲染 (您的密钥: ' + YOUR_SITEKEY + ')', 'info');
+
+                    widgetId1 = window.turnstile.render('#turnstile-test-container-1', {
+                        sitekey: YOUR_SITEKEY,
+                        theme: 'light',
+                        size: 'normal',
+                        callback: function (token) {
+                            log('✅ 验证成功! Token: ' + token.substring(0, 20) + '...', 'success');
+                        },
+                        'error-callback': function (error) {
+                            log('❌ 验证错误: ' + error, 'error');
+                        },
+                        'expired-callback': function () {
+                            log('⏱️ Token 已过期', 'info');
+                        }
+                    });
+
+                    log('✅ Widget 渲染成功 (ID: ' + widgetId1 + ')', 'success');
+                } catch (error) {
+                    log('❌ 渲染失败: ' + error.message, 'error');
+                    console.error(error);
+                }
+            });
+        }
+
+        function testOfficialKey() {
+            waitForTurnstile(() => {
+                try {
+                    if (widgetId2 !== null) {
+                        window.turnstile.remove(widgetId2);
+                        log('移除旧 widget', 'info');
+                    }
+
+                    log('开始渲染 (测试密钥: ' + TEST_SITEKEY + ')', 'info');
+
+                    widgetId2 = window.turnstile.render('#turnstile-test-container-2', {
+                        sitekey: TEST_SITEKEY,
+                        theme: 'light',
+                        size: 'normal',
+                        callback: function (token) {
+                            log('✅ 测试验证成功! Token: ' + token.substring(0, 20) + '...', 'success');
+                        },
+                        'error-callback': function (error) {
+                            log('❌ 测试验证错误: ' + error, 'error');
+                        }
+                    });
+
+                    log('✅ 测试 Widget 渲染成功 (ID: ' + widgetId2 + ')', 'success');
+                } catch (error) {
+                    log('❌ 测试渲染失败: ' + error.message, 'error');
+                    console.error(error);
+                }
+            });
+        }
+
+        // 页面加载后自动检查
+        window.addEventListener('load', function () {
+            log('页面加载完成', 'info');
+            setTimeout(checkAPI, 1000);
+        });
+    </script>
+</body>
+
+</html>
